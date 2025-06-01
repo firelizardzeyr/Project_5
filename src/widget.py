@@ -1,4 +1,4 @@
-from masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(input_str: str = "") -> str | None:
@@ -13,7 +13,7 @@ def mask_account_card(input_str: str = "") -> str | None:
         product_name += input_str[: input_str.find(" ") + 1]
         input_str = input_str[input_str.find(" ") + 1:]
 
-    if input_str.isdigit:
+    if input_str.isdigit == True:
         bill_number = int(input_str)
 
     # Проверяем наличие номера
@@ -35,3 +35,5 @@ def get_date(full_date: str = "") -> str | None:
     в формате "ДД.ММ.ГГГГ" ("11.03.2024")"""
     if full_date[0:4].isdigit() and full_date[5:7].isdigit() and full_date[8:10].isdigit():
         return f"{full_date[8:10]}.{full_date[5:7]}.{full_date[0:4]}"
+    else:
+        return None
