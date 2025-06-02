@@ -1,4 +1,4 @@
-from src.masks import get_mask_account, get_mask_card_number
+from masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(input_str: str = "") -> str | None:
@@ -7,24 +7,14 @@ def mask_account_card(input_str: str = "") -> str | None:
     должна вернуть Visa Platinum 7000 79** **** 6361 или Счет **4305"""
 
     # разделяем счет/карту и номер
-    product_name: str = ""
-    bill_number: int = 0
-    while input_str.find(" ") > 0:
-        product_name += input_str[: input_str.find(" ") + 1]
-        input_str = input_str[input_str.find(" ") + 1:]
-
-    if input_str.isdigit == True:
-        bill_number = int(input_str)
-
-    # Проверяем наличие номера
-    if bill_number == 0:
-        return None
+    bill_number = input_str[::-1][: input_str[::-1].index(" ")][::-1]
+    product_name = input_str[::-1][input_str[::-1].index(" "):][::-1]
 
     # Маскируем счет/карту и выводим результат
     if product_name.lower() == "счет ":
-        return f"Счет {get_mask_account(bill_number)}"
-    elif len(str(bill_number)) == 16:
-        return f"{product_name}{get_mask_card_number(bill_number)}"
+        return f"Счет {get_mask_account(int(bill_number))}"
+    elif len(bill_number) == 16:
+        return f"{product_name}{get_mask_card_number(int(bill_number))}"
     else:
         return None
 
