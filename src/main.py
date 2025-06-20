@@ -1,6 +1,7 @@
 from processing import filter_by_state
 from processing import sort_by_date
 
+
 # Данные для проверки функций filter_by_state и sort_by_date модуля processing
 processing_list = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
                    {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
@@ -8,19 +9,21 @@ processing_list = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:
                    {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}
                    ]
 
-for proc in filter_by_state(processing_list): print(proc, end="\n")
+for proc in filter_by_state(processing_list):
+    print(proc, end="\n")
 print("\n")
 
-for proc in filter_by_state(processing_list,"CANCELED"): print(proc, end="\n")
+for proc in filter_by_state(processing_list, "CANCELED"):
+    print(proc, end="\n")
 print("\n")
 
-for proc in sort_by_date(processing_list): print(proc, end="\n")
+for proc in sort_by_date(processing_list):
+    print(proc, end="\n")
 print("\n")
 
-for proc in sort_by_date(processing_list,False): print(proc, end="\n")
+for proc in sort_by_date(processing_list, False):
+    print(proc, end="\n")
 print("\n")
-
-
 
 
 # import masks
