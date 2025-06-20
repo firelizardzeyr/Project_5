@@ -1,6 +1,7 @@
 """ Этот модуль содержит функции фильтрации и сортировки """
 
-def filter_by_state(proc_list: list, state : str = "EXECUTED") -> list:
+
+def filter_by_state(proc_list: list, state: str = "EXECUTED") -> list:
     """ Эта функция возвращает новый список словарей, содержащий
     только те словари, у которых ключ state соответствует
     указанному значению."""
@@ -18,5 +19,4 @@ def sort_by_date(proc_list: list, is_reverse: bool = True) -> list:
     задающий порядок сортировки (по умолчанию — убывание). Функция должна
     возвращать новый список, отсортированный по дате (ключ = date)"""
 
-    return sorted(proc_list, key= lambda proc: proc.get("date"), reverse= is_reverse)
-
+    return sorted(proc_list, key=lambda proc: proc.get("date"), reverse=is_reverse)
