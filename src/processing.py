@@ -6,12 +6,7 @@ def filter_by_state(proc_list: list, state: str = "EXECUTED") -> list:
     только те словари, у которых ключ state соответствует
     указанному значению."""
 
-    result = []
-    for proc in proc_list:
-        if proc.get("state") == state:
-            result.append(proc)
-
-    return result
+    return [my_process for my_process in proc_list if my_process.get("state") == state]
 
 
 def sort_by_date(proc_list: list, is_reverse: bool = True) -> list:
@@ -19,4 +14,4 @@ def sort_by_date(proc_list: list, is_reverse: bool = True) -> list:
     задающий порядок сортировки (по умолчанию — убывание). Функция должна
     возвращать новый список, отсортированный по дате (ключ = date)"""
 
-    return sorted(proc_list, key=lambda proc: proc.get("date"), reverse=is_reverse)
+    return sorted(proc_list, key=lambda my_process: my_process.get("date"), reverse=is_reverse)
